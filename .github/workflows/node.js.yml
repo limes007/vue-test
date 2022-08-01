@@ -1,0 +1,35 @@
+name: Lint, Test & Build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    name: Lint, Test & Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Run linter
+        run: yarn lint
+        
+      - name: Build
+        run: yarn build
+
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          path: dist
