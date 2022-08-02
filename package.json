@@ -1,10 +1,7 @@
 {
   "name": "my-project-ui",
   "version": "0.1.0",
-  "private": false,
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
+  "private": true
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
