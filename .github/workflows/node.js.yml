@@ -33,3 +33,6 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           path: dist
+
+      - name: Publishing package
+        run: yarn publish
